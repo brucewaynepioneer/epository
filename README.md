@@ -8,6 +8,19 @@
   I am a multi-functional bot designed to manage restrictions in Telegram groups. Save videos, audio files, media, and more from private or public channels with ease. Whether you're managing a community or downloading restricted content, I’ve got you covered.
 </p>
 
+# Your Application Name
+
+A brief description of your application.
+
+## Deploy to Heroku
+
+Click the button below to deploy this application to Heroku.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/brucewaynepioneer/epository)
+
+
+
+
 ---
 
 <h3 align="center">-- Deploy on Heroku --</h3>
