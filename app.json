@@ -1,7 +1,7 @@
 {
   "name": "Restriction Bot",
   "description": "A bot to manage restrictions, log premium activities",
-  "repository": "https://github.com/Sumit0045/RestrictionBot",
+  "repository": "https://github.com/brucewaynepioneer/epository",
   "keywords": ["telegram", "bot", "restriction"],
   "env": {
     "BOT_TOKEN": {
@@ -28,8 +28,7 @@
   },
   "buildpacks": [
     {
-      "url": "heroku/nodejs"
+      "url": "heroku/python"
     }
   ]
 }
-
