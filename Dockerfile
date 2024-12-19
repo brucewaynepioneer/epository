@@ -1,12 +1,27 @@
+# Use a lightweight Python image
 FROM python:3.10.4-slim-buster
-RUN apt update && apt upgrade -y
-RUN apt-get install git curl python3-pip ffmpeg -y
-RUN apt-get -y install git
-RUN apt-get install -y wget python3-pip curl bash neofetch ffmpeg software-properties-common
-COPY requirements.txt .
 
-RUN pip3 install wheel
-RUN pip3 install --no-cache-dir -U -r requirements.txt
+# Set environment variables to prevent Python from buffering stdout and stderr
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
+
+# Update and install necessary packages
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+    git curl wget ffmpeg bash neofetch software-properties-common && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+COPY requirements.txt /tmp/requirements.txt
+RUN pip3 install --no-cache-dir -U pip wheel && \
+    pip3 install --no-cache-dir -r /tmp/requirements.txt && \
+    rm -f /tmp/requirements.txt
+
+# Set the working directory
 WORKDIR /app
+
+# Copy the application code into the container
 COPY . .
-CMD python3 -m Restriction
+
+# Specify the command to run your app
+CMD ["python3", "-m", "Restriction"]
